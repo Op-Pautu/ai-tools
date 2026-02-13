@@ -1,3 +1,4 @@
+import { ThemeToggle } from "@/components/ui/theme-toggle"
 import { SignInButton, UserButton } from "@clerk/nextjs"
 
 export default function Home() {
@@ -5,6 +6,7 @@ export default function Home() {
     <>
       <SignInButton />
       <UserButton />
+      <ThemeToggle />
     </>
   )
 }

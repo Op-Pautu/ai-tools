@@ -1,6 +1,7 @@
 import { type Metadata } from "next"
 import "./globals.css"
 import { ClerkProvider } from "@/services/clerk/components/clerk-provider"
+import { ThemeProvider } from "next-themes"
 
 export const metadata: Metadata = {
   title: "Clerk Next.js Quickstart",
@@ -14,8 +15,17 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body className={`antialiased`}>{children}</body>
+      <html lang="en" suppressHydrationWarning>
+        <body className={`antialiased`}>
+          <ThemeProvider
+            attribute={"class"}
+            defaultTheme="system"
+            enableColorScheme
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </body>
       </html>
     </ClerkProvider>
   )
